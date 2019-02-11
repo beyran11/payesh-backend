@@ -12,4 +12,15 @@ public class UserController {
     private String helloWorld() {
         return "hello world";
     }
+
+    @GetMapping("/add")
+    private int NumCalc(){
+        return 1+1;
+    }
+
+    @GetMapping("/trigon")
+    private double trigon(){
+        return Math.sin(Math.PI/2);
+    }
 }
+
