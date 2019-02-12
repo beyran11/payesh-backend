@@ -22,5 +22,7 @@ public class UserController {
     private double trigon(){
         return Math.sin(Math.PI/2);
     }
+
+
 }
 
