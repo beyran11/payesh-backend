@@ -1,11 +1,16 @@
 package com.infinity1.payesh.resource;
 
 import com.infinity1.payesh.domain.ValContainer;
+import com.infinity1.payesh.repository.ValContainerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+    @Autowired
+    ValContainerRepository valContainerRepository;
 
     @GetMapping
     private String helloWorld() {
@@ -30,8 +35,8 @@ public class UserController {
 
     @PostMapping("/post/trigon")
     private double getVal(@RequestBody ValContainer valContainer) {
-        System.out.println(valContainer.getVal());
-        return Math.sin(valContainer.getVal()*Math.PI/180);
+        valContainerRepository.save(valContainer);
+        return valContainer.getVal();
     }
 }
 
